@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "UntamedAndroidSubsystem (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "UntamedAndroidSubsystem (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
