@@ -1,0 +1,10 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.59961 13.5996H14.5996" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M4.59961 10.5996H6.59961" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M4.59961 7.59961H6.59961" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M8.59961 10.5996H10.5996" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M8.59961 7.59961H10.5996" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M12.5996 10.5996H14.5996" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M12.5996 7.59961H14.5996" stroke="black" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.2 2.1C10.2 1.76863 9.93137 1.5 9.6 1.5C9.26863 1.5 9 1.76863 9 2.1V4H2.6C1.71634 4 1 4.71634 1 5.6V15.6C1 16.4837 1.71634 17.2 2.6 17.2H16.6C17.4837 17.2 18.2 16.4837 18.2 15.6V5.6C18.2 4.71634 17.4837 4 16.6 4H10.2V2.1ZM2.2 5.6C2.2 5.37909 2.37909 5.2 2.6 5.2H16.6C16.8209 5.2 17 5.37909 17 5.6V15.6C17 15.8209 16.8209 16 16.6 16H2.6C2.37909 16 2.2 15.8209 2.2 15.6V5.6Z" fill="black" fill-opacity="0.9"/>
+</svg>

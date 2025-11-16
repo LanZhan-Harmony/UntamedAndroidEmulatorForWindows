@@ -1,27 +1,43 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using CommunityToolkit.WinUI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using UntamedAndroidSubsystem.Views;
 
-namespace UntamedAndroidSubsystem
+namespace UntamedAndroidSubsystem;
+
+public sealed partial class MainWindow : Window
 {
-    public sealed partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
+        InitializeComponent();
+        ExtendsContentIntoTitleBar = true;
+        SetTitleBar(titleBar);
+        Title = "AppDisplayName".GetLocalized();
+    }
+
+    private void NavView_Loaded(object sender, RoutedEventArgs e)
+    {
+        NavView.SelectedItem = NavView.MenuItems[0];
+        NavigateToPage(typeof(DevicesPage));
+    }
+
+    private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+    {
+        var pageToNavigate = (args.InvokedItemContainer as NavigationViewItem)!.Tag switch
         {
-            InitializeComponent();
-            ExtendsContentIntoTitleBar = true;
-            SetTitleBar(titleBar);
+            "Device" => typeof(DevicesPage),
+            "Settings" => typeof(SettingsPage),
+            _ => typeof(DevicesPage),
+        };
+        NavigateToPage(pageToNavigate);
+    }
+
+    private void NavigateToPage(Type pageType)
+    {
+        if (ContentFrame.CurrentSourcePageType != pageType)
+        {
+            ContentFrame.Navigate(pageType);
         }
     }
 }
