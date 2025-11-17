@@ -132,4 +132,19 @@
   <data name="Settings1.Text" xml:space="preserve">
     <value>设置</value>
   </data>
+  <data name="Main_TitleBarDisplayName.Title" xml:space="preserve">
+    <value>无羁 安卓模拟器</value>
+  </data>
+  <data name="Devices_AddDevice.Text" xml:space="preserve">
+    <value>添加设备</value>
+  </data>
+  <data name="Devices_AddTablet.Text" xml:space="preserve">
+    <value>添加平板</value>
+  </data>
+  <data name="Devices_AddPhone.Text" xml:space="preserve">
+    <value>添加手机</value>
+  </data>
+  <data name="AndroidDevice" xml:space="preserve">
+    <value>安卓设备-</value>
+  </data>
 </root>

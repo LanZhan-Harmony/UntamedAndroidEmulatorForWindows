@@ -4,6 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="UntamedAndroidSubsystem.Core/UntamedAndroidSubsystem.Core.csproj" Id="6e6b1ce3-b878-4458-aead-c9aebe6b06fa" />
   <Project Path="UntamedAndroidSubsystem/UntamedAndroidSubsystem.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />

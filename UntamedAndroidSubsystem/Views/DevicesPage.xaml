@@ -5,7 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:UntamedAndroidSubsystem.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:models="using:UntamedAndroidSubsystem.Core.Models"
+      xmlns:ui="using:CommunityToolkit.WinUI"
       mc:Ignorable="d">
 
-    <Grid/>
+    <Page.Resources>
+        <DataTemplate x:Key="DeviceItemTemplate" x:DataType="models:DeviceInfo">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="{x:Bind Preview, Mode=OneWay}"/>
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
+                               Text="{x:Bind Name, Mode=OneWay}"/>
+                    <SplitButton HorizontalAlignment="Right"
+                                 VerticalAlignment="Bottom"
+                                 Style="{StaticResource AccentButtonStyle}"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid Margin="56,44,56,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock x:Uid="AndroidDevices1" Style="{StaticResource TitleTextBlockStyle}"/>
+                <SplitButton HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Margin="0,2,0,0" Glyph="&#xE710;"/>
+                        <TextBlock x:Uid="Devices_AddDevice" Margin="0,-1,0,0"/>
+                    </StackPanel>
+                    <SplitButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:Uid="Devices_AddTablet"
+                                            MinWidth="150"
+                                            Icon="{ui:FontIcon Glyph=&#xE70A;}"/>
+                            <MenuFlyoutItem x:Uid="Devices_AddPhone" Icon="{ui:FontIcon Glyph=&#xE8EA;}"/>
+                        </MenuFlyout>
+                    </SplitButton.Flyout>
+                </SplitButton>
+            </Grid>
+            <ListView x:Name="DevicesListView"
+                      Grid.Row="1"
+                      SelectionMode="None"/>
+        </Grid>
+    </Grid>
 </Page>

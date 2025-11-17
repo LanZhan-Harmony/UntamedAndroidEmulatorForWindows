@@ -3,17 +3,18 @@ using CommunityToolkit.WinUI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using UntamedAndroidSubsystem.Views;
+using WinUIEx;
 
 namespace UntamedAndroidSubsystem;
 
-public sealed partial class MainWindow : Window
+public sealed partial class MainWindow : WindowEx
 {
     public MainWindow()
     {
         InitializeComponent();
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(titleBar);
-        Title = "AppDisplayName".GetLocalized();
+        Title = "AppDisplayName".GetLocalized()!;
     }
 
     private void NavView_Loaded(object sender, RoutedEventArgs e)
