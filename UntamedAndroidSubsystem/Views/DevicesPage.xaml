@@ -2,7 +2,9 @@
 <Page x:Class="UntamedAndroidSubsystem.Views.DevicesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:converters="using:UntamedAndroidSubsystem.Converters"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:helpers="using:UntamedAndroidSubsystem.Helpers"
       xmlns:local="using:UntamedAndroidSubsystem.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:models="using:UntamedAndroidSubsystem.Core.Models"
@@ -10,49 +12,81 @@
       mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:StartStopBoolToGlyphConverter x:Key="StartStopBoolToGlyphConverter"/>
+        <converters:StartStopBoolToTextConverter x:Key="StartStopBoolToTextConverter"/>
+
         <DataTemplate x:Key="DeviceItemTemplate" x:DataType="models:DeviceInfo">
-            <Grid>
+            <Grid Height="160"
+                  Margin="-16,8,-16,8"
+                  Background="Transparent" CornerRadius="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="270"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Source="{x:Bind Preview, Mode=OneWay}"/>
-                <Grid>
-                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
+                <Border Grid.Column="0">
+                    <Image Source="{x:Bind Preview, Mode=OneWay}" Stretch="UniformToFill"/>
+                </Border>
+
+                <Grid Grid.Column="1">
+                    <TextBlock Margin="20,16,0,0" HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               FontSize="16" FontWeight="SemiBold"
                                Text="{x:Bind Name, Mode=OneWay}"/>
-                    <SplitButton HorizontalAlignment="Right"
-                                 VerticalAlignment="Bottom"
-                                 Style="{StaticResource AccentButtonStyle}"/>
+                    <SplitButton Margin="0,0,20,16" HorizontalAlignment="Right"
+                                 VerticalAlignment="Bottom">
+                        <StackPanel Width="100"
+                                    Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontSize="14" Glyph="{x:Bind IsStarted, Converter={StaticResource StartStopBoolToGlyphConverter}, Mode=OneWay}"/>
+                            <TextBlock FontSize="16" Text="{x:Bind IsStarted, Converter={StaticResource StartStopBoolToTextConverter}, Mode=OneWay}"/>
+                        </StackPanel>
+                        <SplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:Uid="Devices_Settings"
+                                                MinWidth="156"
+                                                Icon="{ui:FontIcon Glyph=&#xE713;}"/>
+                                <MenuFlyoutItem x:Uid="Devices_Copy" Icon="{ui:FontIcon Glyph=&#xE8C8;}"/>
+                                <MenuFlyoutItem x:Uid="Devices_Delete"
+                                                Foreground="IndianRed"
+                                                Icon="{ui:FontIcon Glyph=&#xE74D;}"/>
+                            </MenuFlyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
                 </Grid>
             </Grid>
         </DataTemplate>
     </Page.Resources>
 
     <Grid>
-        <Grid Margin="56,44,56,0">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Margin="56,44,56,10">
                 <TextBlock x:Uid="AndroidDevices1" Style="{StaticResource TitleTextBlockStyle}"/>
                 <SplitButton HorizontalAlignment="Right">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Margin="0,2,0,0" Glyph="&#xE710;"/>
-                        <TextBlock x:Uid="Devices_AddDevice" Margin="0,-1,0,0"/>
+                        <FontIcon Glyph="&#xE710;"/>
+                        <TextBlock x:Uid="Devices_NewDevice" FontSize="16"/>
                     </StackPanel>
                     <SplitButton.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem x:Uid="Devices_AddTablet"
+                            <MenuFlyoutItem x:Uid="Devices_NewTablet"
                                             MinWidth="150"
                                             Icon="{ui:FontIcon Glyph=&#xE70A;}"/>
-                            <MenuFlyoutItem x:Uid="Devices_AddPhone" Icon="{ui:FontIcon Glyph=&#xE8EA;}"/>
+                            <MenuFlyoutItem x:Uid="Devices_NewPhone" Icon="{ui:FontIcon Glyph=&#xE8EA;}"/>
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
             </Grid>
             <ListView x:Name="DevicesListView"
                       Grid.Row="1"
+                      Padding="56,0,56,0"
+                      helpers:ListViewExtensions.ItemBackground="{ThemeResource LayerFillColorAltBrush}"
+                      helpers:ListViewExtensions.ItemCornerRadius="4"
+                      helpers:ListViewExtensions.ItemMargin="0,8,0,8"
+                      ItemTemplate="{StaticResource DeviceItemTemplate}"
+                      ItemsSource="{x:Bind ViewModel.Devices}"
                       SelectionMode="None"/>
         </Grid>
     </Grid>

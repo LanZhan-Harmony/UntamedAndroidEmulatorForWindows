@@ -24,7 +24,14 @@
                   Grid.Row="0"
                   Height="48"
                   IsBackButtonEnabled="{x:Bind ContentFrame.CanGoBack, Mode=OneWay}"
-                  IsBackButtonVisible="True"/>
+                  IsBackButtonVisible="True">
+            <TitleBar.LeftHeader>
+                <Image Width="16"
+                       Margin="6,0,10,0"
+                       AutomationProperties.AccessibilityView="Raw"
+                       Source="ms-appx:///Assets/Icon.ico"/>
+            </TitleBar.LeftHeader>
+        </TitleBar>
         <NavigationView x:Name="NavView"
                         Grid.Row="1"
                         IsBackButtonVisible="Collapsed"

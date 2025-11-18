@@ -135,16 +135,31 @@
   <data name="Main_TitleBarDisplayName.Title" xml:space="preserve">
     <value>无羁 安卓模拟器</value>
   </data>
-  <data name="Devices_AddDevice.Text" xml:space="preserve">
-    <value>添加设备</value>
+  <data name="Devices_NewDevice.Text" xml:space="preserve">
+    <value>新建设备</value>
   </data>
-  <data name="Devices_AddTablet.Text" xml:space="preserve">
-    <value>添加平板</value>
+  <data name="Devices_NewTablet.Text" xml:space="preserve">
+    <value>新建平板</value>
   </data>
-  <data name="Devices_AddPhone.Text" xml:space="preserve">
-    <value>添加手机</value>
+  <data name="Devices_NewPhone.Text" xml:space="preserve">
+    <value>新建手机</value>
   </data>
   <data name="AndroidDevice" xml:space="preserve">
     <value>安卓设备-</value>
+  </data>
+  <data name="Devices_Start" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Devices_Settings.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Devices_Copy.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Devices_Delete.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Devices_Shutdown" xml:space="preserve">
+    <value>关闭</value>
   </data>
 </root>

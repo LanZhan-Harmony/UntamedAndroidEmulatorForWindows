@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using CommunityToolkit.WinUI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -15,6 +16,7 @@ public sealed partial class MainWindow : WindowEx
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(titleBar);
         Title = "AppDisplayName".GetLocalized()!;
+        AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/Icon.ico"));
     }
 
     private void NavView_Loaded(object sender, RoutedEventArgs e)

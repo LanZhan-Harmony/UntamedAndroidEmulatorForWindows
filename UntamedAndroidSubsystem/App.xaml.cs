@@ -1,31 +1,40 @@
+using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
+using UntamedAndroidSubsystem.Core.ViewModels;
 using WinUIEx;
 
 namespace UntamedAndroidSubsystem;
 
-/// <summary>
-/// Provides application-specific behavior to supplement the default Application class.
-/// </summary>
 public partial class App : Application
 {
-    private WindowEx? _window;
+    public WindowEx? MainWindow { get; private set; }
 
-    /// <summary>
-    /// Initializes the singleton application object.  This is the first line of authored code
-    /// executed, and as such is the logical equivalent of main() or WinMain().
-    /// </summary>
     public App()
     {
         InitializeComponent();
+        ConfigureServices();
+        UnhandledException += App_UnhandledException;
     }
 
-    /// <summary>
-    /// Invoked when the application is launched.
-    /// </summary>
-    /// <param name="args">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
-        _window = new MainWindow();
-        _window.Activate();
+        MainWindow = new MainWindow();
+        MainWindow.Activate();
+    }
+
+    private static void ConfigureServices()
+    {
+        Ioc.Default.ConfigureServices(
+            new ServiceCollection().AddTransient<DevicesViewModel>().BuildServiceProvider()
+        );
+    }
+
+    private void App_UnhandledException(
+        object sender,
+        Microsoft.UI.Xaml.UnhandledExceptionEventArgs e
+    )
+    {
+        e.Handled = true;
     }
 }
