@@ -150,6 +150,9 @@
   <data name="Devices_Start" xml:space="preserve">
     <value>启动</value>
   </data>
+  <data name="Devices_ShowDisplay.Text" xml:space="preserve">
+    <value>显示窗口</value>
+  </data>
   <data name="Devices_Settings.Text" xml:space="preserve">
     <value>设置</value>
   </data>
@@ -161,5 +164,17 @@
   </data>
   <data name="Devices_Shutdown" xml:space="preserve">
     <value>关闭</value>
+  </data>
+  <data name="Devices_Refresh.Content" xml:space="preserve">
+    <value>刷新设备</value>
+  </data>
+  <data name="Settings_HyperVApiHeader.Text" xml:space="preserve">
+    <value>Hyper-V API 结论</value>
+  </data>
+  <data name="Settings_HyperVApiSummary.Text" xml:space="preserve">
+    <value>MuMu 的 WinUI shell 调用 nemu-hcs.dll；该 DLL 使用 Host Compute Service/Host Compute Network API（HCS/HCN），不是直接使用 WHP 或 WMI。</value>
+  </data>
+  <data name="Settings_HyperVApiEvidence.Text" xml:space="preserve">
+    <value>本地证据：HcsNativeWrapper DllImport(nemu-hcs.dll) 的 InitVM/ConfigVM/StartVM/StopVM；nemu-hcs.dll 字符串包含 HcsCreateComputeSystem、HcsStartComputeSystem、HcnCreateNetwork、HcnCreateEndpoint。</value>
   </data>
 </root>

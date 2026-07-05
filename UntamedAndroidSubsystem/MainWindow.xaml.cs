@@ -4,11 +4,10 @@ using CommunityToolkit.WinUI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using UntamedAndroidSubsystem.Views;
-using WinUIEx;
 
 namespace UntamedAndroidSubsystem;
 
-public sealed partial class MainWindow : WindowEx
+public sealed partial class MainWindow : Window
 {
     public MainWindow()
     {

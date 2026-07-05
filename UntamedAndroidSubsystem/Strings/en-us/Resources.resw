@@ -150,6 +150,9 @@
   <data name="Devices_Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="Devices_ShowDisplay.Text" xml:space="preserve">
+    <value>Show display</value>
+  </data>
   <data name="Devices_Settings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -161,5 +164,17 @@
   </data>
   <data name="Devices_Shutdown" xml:space="preserve">
     <value>Shutdown</value>
+  </data>
+  <data name="Devices_Refresh.Content" xml:space="preserve">
+    <value>Refresh devices</value>
+  </data>
+  <data name="Settings_HyperVApiHeader.Text" xml:space="preserve">
+    <value>Hyper-V API finding</value>
+  </data>
+  <data name="Settings_HyperVApiSummary.Text" xml:space="preserve">
+    <value>MuMu's WinUI shell calls nemu-hcs.dll; that DLL uses Host Compute Service/Host Compute Network APIs (HCS/HCN), not direct WHP or WMI.</value>
+  </data>
+  <data name="Settings_HyperVApiEvidence.Text" xml:space="preserve">
+    <value>Local evidence: HcsNativeWrapper DllImport(nemu-hcs.dll) for InitVM/ConfigVM/StartVM/StopVM; nemu-hcs.dll strings include HcsCreateComputeSystem, HcsStartComputeSystem, HcnCreateNetwork, and HcnCreateEndpoint.</value>
   </data>
 </root>
